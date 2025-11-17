@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teacher Dashboard - Class Management System</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Firebase SDK (Compat) -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <h1>Class Management System</h1>
+          <nav class="nav-menu">
+            <a href="admin.html" class="nav-link">Admin</a>
+            <a href="teacher.html" class="nav-link active">Teacher</a>
+            <a href="student.html" class="nav-link">Student</a>
+          </nav>
+          <div class="user-info">
+            <span id="current-user">Teacher User</span>
+            <span id="current-role" class="role-badge teacher">Teacher</span>
+            <button id="logout-btn" class="btn btn-outline">Logout</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Teacher Dashboard -->
+    <section id="teacher-dashboard" class="dashboard">
+      <div class="container">
+        <h2>Teacher Dashboard</h2>
+
+        <!-- Class Management -->
+        <div class="dashboard-section">
+          <h3>My Classes</h3>
+          <div class="section-content">
+            <button class="btn btn-primary" id="create-class-btn">
+              Create New Class
+            </button>
+            <div class="classes-grid" id="teacher-classes-grid">
+              <!-- Classes will be populated by JavaScript -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Assignment Management -->
+        <div class="dashboard-section">
+          <h3>Assignments</h3>
+          <div class="section-content">
+            <button class="btn btn-primary" id="create-assignment-btn">
+              Create Assignment
+            </button>
+            <div class="assignments-list" id="teacher-assignments-list">
+              <!-- Assignments will be populated by JavaScript -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Class Analytics -->
+        <div class="dashboard-section">
+          <h3>Class Analytics</h3>
+          <div class="analytics-container">
+            <div class="analytics-card">
+              <h4>Submission Rates</h4>
+              <div class="progress-bars">
+                <!-- Progress bars will be populated by JavaScript -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modals -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 id="modal-title">Modal Title</h3>
+          <button id="modal-close" class="btn-close">&times;</button>
+        </div>
+        <div class="modal-body" id="modal-body">
+          <!-- Modal content will be injected here -->
+        </div>
+      </div>
+    </div>
+
+    <script src="firebase-config.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="teacher.js"></script>
+  </body>
+</html>

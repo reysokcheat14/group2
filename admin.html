@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - Class Management System</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Firebase SDK (Compat) -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <h1>Class Management System</h1>
+          <nav class="nav-menu">
+            <a href="admin.html" class="nav-link active">Admin</a>
+            <a href="teacher.html" class="nav-link">Teacher</a>
+            <a href="student.html" class="nav-link">Student</a>
+          </nav>
+          <div class="user-info">
+            <span id="current-user">Admin User</span>
+            <span id="current-role" class="role-badge admin">Admin</span>
+            <button id="logout-btn" class="btn btn-outline">Logout</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Admin Dashboard -->
+    <section id="admin-dashboard" class="dashboard">
+      <div class="container">
+        <h2>Admin Dashboard</h2>
+
+        <!-- User Management -->
+        <div class="dashboard-section">
+          <h3>User Management</h3>
+          <div class="section-content">
+            <div class="action-bar">
+              <button class="btn btn-primary" id="add-user-btn">
+                Add User
+              </button>
+              <input
+                type="text"
+                placeholder="Search users..."
+                class="search-input"
+              />
+            </div>
+            <div class="table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="users-table-body">
+                  <!-- Users will be populated by JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- System Statistics -->
+        <div class="dashboard-section">
+          <h3>System Statistics</h3>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <h4>Total Users</h4>
+              <div class="stat-value">154</div>
+            </div>
+            <div class="stat-card">
+              <h4>Active Classes</h4>
+              <div class="stat-value">23</div>
+            </div>
+            <div class="stat-card">
+              <h4>Assignments</h4>
+              <div class="stat-value">187</div>
+            </div>
+            <div class="stat-card">
+              <h4>Submissions</h4>
+              <div class="stat-value">1,245</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- All Classes -->
+        <div class="dashboard-section">
+          <h3>All Classes</h3>
+          <div class="classes-grid" id="admin-classes-grid">
+            <!-- Classes will be populated by JavaScript -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modals -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 id="modal-title">Modal Title</h3>
+          <button id="modal-close" class="btn-close">&times;</button>
+        </div>
+        <div class="modal-body" id="modal-body">
+          <!-- Modal content will be injected here -->
+        </div>
+      </div>
+    </div>
+
+    <script src="firebase-config.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="admin.js"></script>
+  </body>
+</html>

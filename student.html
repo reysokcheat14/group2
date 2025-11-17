@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Dashboard - Class Management System</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Firebase SDK (Compat) -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <h1>Class Management System</h1>
+          <nav class="nav-menu">
+            <a href="admin.html" class="nav-link">Admin</a>
+            <a href="teacher.html" class="nav-link">Teacher</a>
+            <a href="student.html" class="nav-link active">Student</a>
+          </nav>
+          <div class="user-info">
+            <span id="current-user">Student User</span>
+            <span id="current-role" class="role-badge student">Student</span>
+            <button id="logout-btn" class="btn btn-outline">Logout</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Student Dashboard -->
+    <section id="student-dashboard" class="dashboard">
+      <div class="container">
+        <h2>Student Dashboard</h2>
+
+        <!-- Join Class -->
+        <div class="dashboard-section">
+          <h3>Join a Class</h3>
+          <div class="section-content">
+            <div class="join-class-form">
+              <input
+                type="text"
+                id="class-code-input"
+                placeholder="Enter class code"
+              />
+              <button class="btn btn-primary" id="join-class-btn">
+                Join Class
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- My Classes -->
+        <div class="dashboard-section">
+          <h3>My Classes</h3>
+          <div class="classes-grid" id="student-classes-grid">
+            <!-- Classes will be populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Assignments -->
+        <div class="dashboard-section">
+          <h3>Assignments</h3>
+          <div class="assignments-list" id="student-assignments-list">
+            <!-- Assignments will be populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Submission History -->
+        <div class="dashboard-section">
+          <h3>Submission History</h3>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Assignment</th>
+                  <th>Class</th>
+                  <th>Submitted</th>
+                  <th>Grade</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="submission-history-body">
+                <!-- Submission history will be populated by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Overlay -->
+    <div id="modal-overlay" class="hidden">
+      <div class="modal">
+        <div class="modal-header">
+          <h2 id="modal-title">Modal Title</h2>
+          <button id="modal-close" class="modal-close">&times;</button>
+        </div>
+        <div id="modal-body" class="modal-body">
+          <!-- Content will be inserted here -->
+        </div>
+      </div>
+    </div>
+
+    <script src="firebase-config.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="student.js"></script>
+  </body>
+</html>

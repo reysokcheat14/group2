@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Class Management System</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Firebase SDK (Compat) -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <h1>Class Management System</h1>
+        </div>
+      </div>
+    </header>
+
+    <!-- Login Section -->
+    <section id="login-section" class="container">
+      <div class="login-container">
+        <h2>Login to Class Management System</h2>
+        <form id="login-form" class="login-form">
+          <div class="form-group">
+            <label for="login-email">Email</label>
+            <input
+              type="email"
+              id="login-email"
+              class="form-control"
+              required
+              placeholder="Enter your email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input
+              type="password"
+              id="login-password"
+              class="form-control"
+              required
+              placeholder="Enter your password"
+            />
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">
+              Log In
+            </button>
+          </div>
+        </form>
+        <p id="toggle-to-signup">
+          Don't have an account? <a href="#" id="show-signup">Sign up</a>
+        </p>
+
+        <form id="signup-form" class="signup-form hidden">
+          <h3>Create an account</h3>
+          <div class="form-group">
+            <label for="signup-name">Full Name</label>
+            <input
+              type="text"
+              id="signup-name"
+              class="form-control"
+              required
+              placeholder="Your full name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="signup-email">Email</label>
+            <input
+              type="email"
+              id="signup-email"
+              class="form-control"
+              required
+              placeholder="Enter your email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="signup-password">Password</label>
+            <input
+              type="password"
+              id="signup-password"
+              class="form-control"
+              required
+              placeholder="Choose a password"
+            />
+          </div>
+          <div class="form-group">
+            <label for="signup-role">Role</label>
+            <select id="signup-role" class="form-control">
+              <option value="student" selected>Student</option>
+              <option value="teacher">Teacher</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">
+              Sign up
+            </button>
+          </div>
+          <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+        </form>
+        <div class="demo-accounts">
+          <h4>Demo Accounts:</h4>
+          <p><strong>Admin:</strong> admin@school.edu / admin123</p>
+          <p><strong>Teacher:</strong> john@school.edu / teacher123</p>
+          <p><strong>Student:</strong> mike@school.edu / student123</p>
+        </div>
+      </div>
+    </section>
+
+    <script src="firebase-config.js"></script>
+    <script src="auth.js"></script>
+  </body>
+</html>

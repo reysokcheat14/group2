@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submission Details - Class Management System</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Firebase SDK (Compat) -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <h1>Class Management System</h1>
+          <nav class="nav-menu">
+            <a href="admin.html" class="nav-link">Admin</a>
+            <a href="teacher.html" class="nav-link">Teacher</a>
+            <a href="student.html" class="nav-link active">Student</a>
+          </nav>
+          <div class="user-info">
+            <span id="current-user">Student User</span>
+            <span id="current-role" class="role-badge student">Student</span>
+            <button id="logout-btn" class="btn btn-outline">Logout</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Submission Details Section -->
+    <section id="submission-details-section" class="dashboard">
+      <div class="container">
+        <div class="submission-header">
+          <a href="student.html" class="btn btn-outline btn-sm"
+            >← Back to Dashboard</a
+          >
+          <h2>Submission Details</h2>
+        </div>
+
+        <!-- Success Message -->
+        <div id="success-message" class="alert alert-success hidden">
+          <h4>✓ Assignment Submitted Successfully!</h4>
+          <p>Your assignment has been submitted and is awaiting grading.</p>
+        </div>
+
+        <!-- Submission Details Card -->
+        <div class="submission-details-card">
+          <div class="card-section">
+            <h3>Submission Information</h3>
+            <div class="info-grid">
+              <div class="info-item">
+                <label>Assignment Title</label>
+                <p id="detail-assignment-title">-</p>
+              </div>
+              <div class="info-item">
+                <label>Class</label>
+                <p id="detail-class">-</p>
+              </div>
+              <div class="info-item">
+                <label>Due Date</label>
+                <p id="detail-due-date">-</p>
+              </div>
+              <div class="info-item">
+                <label>Submission Date</label>
+                <p id="detail-submission-date">-</p>
+              </div>
+              <div class="info-item">
+                <label>Status</label>
+                <p id="detail-status">
+                  <span class="status pending">Pending Review</span>
+                </p>
+              </div>
+              <div class="info-item">
+                <label>Grade</label>
+                <p id="detail-grade">
+                  <span class="status">Not Graded Yet</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-section">
+            <h3>Submitted File</h3>
+            <div class="file-info">
+              <div class="file-item">
+                <span class="file-icon">📄</span>
+                <div>
+                  <p id="detail-file-name">-</p>
+                  <small id="detail-file-size">-</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-section">
+            <h3>Submission Notes</h3>
+            <div class="notes-box">
+              <p id="detail-notes">No notes provided</p>
+            </div>
+          </div>
+
+          <div class="card-section">
+            <h3>Assignment Details</h3>
+            <div class="assignment-details">
+              <p id="detail-assignment-description">No description provided</p>
+            </div>
+          </div>
+
+          <div class="card-section card-actions">
+            <button id="download-btn" class="btn btn-primary">
+              📥 Download Your Submission
+            </button>
+            <button id="back-btn" class="btn btn-secondary">
+              Back to Dashboard
+            </button>
+          </div>
+        </div>
+
+        <!-- Teacher Feedback (When Graded) -->
+        <div id="feedback-section" class="feedback-section hidden">
+          <h3>Teacher Feedback</h3>
+          <div class="feedback-card">
+            <div class="feedback-item">
+              <label>Grade</label>
+              <p id="feedback-grade">-</p>
+            </div>
+            <div class="feedback-item">
+              <label>Comments</label>
+              <p id="feedback-comments">-</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="firebase-config.js"></script>
+    <script src="auth.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="submission-detail.js"></script>
+  </body>
+</html>
